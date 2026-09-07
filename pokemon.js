@@ -1,9 +1,0 @@
-import * as THREE from 'three';
-export const POKEMON=[
-{name:'Embercub',type:'fire',level:5,maxHp:34,hp:34,sprite:'🔥',moves:[{name:'Brasa',type:'fire',power:8},{name:'Investida',type:'normal',power:7},{name:'Lança-Chamas',type:'fire',power:11},{name:'Folha Seca',type:'grass',power:6}]},
-{name:'Aquafi',type:'water',level:4,maxHp:29,hp:29,sprite:'💧',moves:[{name:'Jato',type:'water',power:8},{name:'Investida',type:'normal',power:7},{name:'Bolha',type:'water',power:9},{name:'Folha Seca',type:'grass',power:6}]},
-{name:'Leafling',type:'grass',level:6,maxHp:38,hp:38,sprite:'🌿',moves:[{name:'Folha Seca',type:'grass',power:9},{name:'Investida',type:'normal',power:7},{name:'Chicote',type:'grass',power:10},{name:'Jato',type:'water',power:6}]},
-{name:'Voltkit',type:'normal',level:3,maxHp:25,hp:25,sprite:'⚡',moves:[{name:'Investida',type:'normal',power:7},{name:'Faísca',type:'fire',power:8},{name:'Mordida',type:'normal',power:9},{name:'Jato',type:'water',power:5}]}
-];
-export const randomWildPokemon=()=>structuredClone(POKEMON[Math.floor(Math.random()*POKEMON.length)]);
-export function makePokemonModel(mon){const g=new THREE.Group();const c={fire:0xef714f,water:0x55a9dc,grass:0x62bb6b,normal:0xd5bd72}[mon.type];const m=new THREE.MeshStandardMaterial({color:c});const b=new THREE.Mesh(new THREE.SphereGeometry(.7,12,10),m);b.scale.set(1,.85,1.2);b.position.y=.7;b.castShadow=true;g.add(b);const h=new THREE.Mesh(new THREE.SphereGeometry(.53,12,10),m);h.position.set(0,1.25,.25);h.castShadow=true;g.add(h);const e=new THREE.Mesh(new THREE.SphereGeometry(.06,6,6),new THREE.MeshBasicMaterial({color:0x111111}));e.position.set(.18,1.37,.73);g.add(e);return g}
